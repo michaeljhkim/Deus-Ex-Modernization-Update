@@ -1,4 +1,4 @@
-# Deus-Ex-Modernization-Lite
+# Deus-Ex-Modernization-Update
 
 This is a fork of the original mod of the same name. I combined all the info into this readme, but the two seperate readme's are in the here
 
