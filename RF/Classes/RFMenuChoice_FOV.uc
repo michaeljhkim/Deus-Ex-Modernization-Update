@@ -52,8 +52,18 @@ function LoadSetting()
 		SetValue(13);
 	else if (player.DesiredFOV >= 108 && player.DesiredFOV < 110)
 		SetValue(14);
-	else if (player.DesiredFOV >= 110)
+	else if (player.DesiredFOV >= 110 && player.DesiredFOV < 112)
 		SetValue(15);
+	else if (player.DesiredFOV >= 112 && player.DesiredFOV < 114)
+		SetValue(16);
+	else if (player.DesiredFOV >= 114 && player.DesiredFOV < 116)
+		SetValue(17);
+	else if (player.DesiredFOV >= 116 && player.DesiredFOV < 118)
+		SetValue(18);
+	else if (player.DesiredFOV >= 118 && player.DesiredFOV < 120)
+		SetValue(19);
+	else if (player.DesiredFOV >= 120)
+		SetValue(20);
 }
 
 // ----------------------------------------------------------------------
@@ -64,6 +74,8 @@ function SaveSetting()
 {
 	local int newFov;
 	
+	//original this was just a switch case for all values for some reason
+	//newFov = 80 + (2*currentValue); 
 	switch (currentValue)
 	{
 		case (0):
@@ -98,6 +110,16 @@ function SaveSetting()
 			newFov = 108; break;
 		case (15):
 			newFov = 110; break;
+		case (16):
+			newFov = 112; break;
+		case (17):
+			newFov = 114; break;
+		case (18):
+			newFov = 116; break;
+		case (19):
+			newFov = 118; break;
+		case (20):
+			newFov = 120; break;
 	}
 	
 	player.fov(newFov);
@@ -127,7 +149,9 @@ function ResetToDefault()
 }
 
 // ----------------------------------------------------------------------
+// Default Property Values
 // ----------------------------------------------------------------------
+// changed default FOV to 90
 
 defaultproperties
 {
@@ -147,7 +171,12 @@ defaultproperties
     enumText(13)="106"
     enumText(14)="108"
     enumText(15)="110"
-    defaultValue=3
+    enumText(16)="112"
+    enumText(17)="114"
+    enumText(18)="116"
+    enumText(19)="118"
+    enumText(20)="120"
+    defaultValue=5
     defaultInfoWidth=98
     HelpText="Field of View controls how much of the world is in view. This is helpful for tuning the game to your display size and shape."
     actionText="Field of |&View"

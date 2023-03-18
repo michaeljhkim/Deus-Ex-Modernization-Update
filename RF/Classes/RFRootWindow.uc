@@ -38,14 +38,20 @@ event MutateNewChild(Window NewParent, out class<Window> DesignatedClass)
 	
 	switch (DesignatedClass.Name)
 	{
+		// Swap out Menu Choices.
 		case 'MenuChoice_AdjustBrightness':		DesignatedClass = Class'RF.RFMenuChoice_AdjustBrightness';	break;
 		case 'MenuChoice_EffectsChannels':		DesignatedClass = Class'RF.RFMenuChoice_EffectsChannels';	break;
 		case 'MenuChoice_MouseSensitivity':		DesignatedClass = Class'RF.RFMenuChoice_MouseSensitivity';	break;
 		case 'MenuChoice_Resolution':			DesignatedClass = Class'RF.RFMenuChoice_Resolution';		break;
 		
-		// Entire menu screens here.
+		// Swap out entire menu screens. 
+		//Entire menu screens here.
 		case 'MenuScreenLoadGame':        		DesignatedClass = Class'RF.RFMenuScreenLoadGame';			break;
 		case 'MenuScreenSaveGame':        		DesignatedClass = Class'RF.RFMenuScreenSaveGame';			break;
+		
+		// Swap out the ConWindowActive to RFConWindowActive2. Fixes widescreen cinematic subtitles
+		case 'ConWindowActive':        			DesignatedClass = Class'RF.RFConWindowActive2';				break;
+
 		default:
 			break;
 	}
