@@ -26,6 +26,7 @@ function CalculateWindowSizes()
 
 	root = GetRootWindow();
 
+	//Kenites fix for widescreen cinematic subtitles
 	// Determine the height of the convo windows, based on available space
 	if (bForcePlay)
 	{
