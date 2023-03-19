@@ -12,6 +12,7 @@ Changes:
 * Fixed the widescreen cinematic subtitles
 	- Cutscenes did not show subtitles when resolution was in widescreen. Now they do
 	- Used Kenties method of fixing the subtitles
+	- Fix only activates if aspect ratio is 16:9 or higher
   
 * Direct3D 9 renderer that works better on modern systems compared to the older Direct3D renderer. It also supports:
 	- S3TC compression (for 24-bit textures used by other mods)
