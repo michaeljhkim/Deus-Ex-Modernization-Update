@@ -26,7 +26,8 @@ function CalculateWindowSizes()
 
 	root = GetRootWindow();
 
-	//Kenties fix for widescreen cinematic subtitles only kicks in if screen is 16:9 or greater 
+// Kenties fix for widescreen cinematic subtitles only kicks in if screen is 16:9 or greater 
+	
 	// Determine the height of the convo windows, based on available space
 	if (bForcePlay)
 	{
@@ -40,7 +41,7 @@ function CalculateWindowSizes()
 		//if resolution was 16:9 or greater
 		//MKE
 		else {
-			minLowerHeight = int(height * lowerFinalHeightPercent); //Taken from 'normal' convo. lowerFinalHeightPercent=0.21
+			minLowerHeight = int(height * lowerFinalHeightPercent); //Taken from 'normal' convo. lowerFinalHeightPercent = 0.21
 			cinHeight = min(root.height - minLowerHeight, root.width * 0.5625);
 		}
 
@@ -57,7 +58,8 @@ function CalculateWindowSizes()
 	}
 
 /*
-	// Original cutscene subtitle code 
+// Original cutscene resolution code 
+
 	if (bForcePlay) 
 	{
 		// calculate the correct 16:9 ratio
@@ -79,6 +81,7 @@ function CalculateWindowSizes()
 
 /*
 // REVISION cutscene fix (not sure if I like it better than kenties)
+
 // Determine the height of the convo windows, based on available space
 	if (bForcePlay)
 	{
