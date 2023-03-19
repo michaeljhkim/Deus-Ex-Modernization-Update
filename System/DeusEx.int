@@ -1,50 +1,48 @@
 [Public]
-Preferences=(Caption="Launch File System",Parent="Advanced",Class=DeusExInternal.LaunchSystem,Immediate=True)
+;Preferences=(Caption="Advanced",Parent="Advanced Options")
+;Preferences=(Caption="Launch File System",Parent="Advanced",Class=LaunchInternal.LaunchSystem,Immediate=True)
 
 [General]
-Start=Deus Ex (Starting)
-Exit=Deus Ex (Exiting)
-Run=Deus Ex (Running)
-Product=Deus Ex
+Start=Launch/Deus Ex (Starting)
+Exit=Launch/Deus Ex (Exiting)
+Run=Launch/Deus Ex (Running)
+Product=Launch/Deus Ex
 RunBang=Run!
-FirstTime=Deus Ex First-Time Configuration
-SafeMode=Deus Ex Safe Mode
-Video=Deus Ex Video Configuration
-Audio=Deus Ex Audio Configuration
-RecoveryMode=Deus Ex Recovery Mode
-WebPage=https://coding.hanfling.de/launch/
-Direct3DWebPage=
+FirstTime=Launch First-Time Configuration
+SafeMode=Launch Safe Mode
+Video=Launch Video Configuration
+Audio=Launch Audio Configuration
+RecoveryMode=Launch Recovery Mode
+WebPage=http://coding.hanfling.de/launch/
+Direct3DWebPage=http://www.deusex.com/Direct3D.htm
 Detecting=Detecting 3D video devices, please wait...
 SoundLow=Low sound quality
 SoundHigh=High sound quality
-SkinsLow=Low detail player textures
+SkinsLow=Medium detail player skin textures
 SkinsHigh=High detail player skins
 WorldLow=Medium detail world textures
-WorldHigh=High detail textures
+WorldHigh="High detail textures"
 ResLow=Low video resolution
 ResHigh=Standard video resolution
 FailedResDetect=Failed to detect supported resolutions.
 
 [Descriptions]
-OpenGLDrv.OpenGLRenderDevice=Enhanced OpenGL Rendering. May be useful as a fallback alternative to Direct3D 9.
-D3D9Drv.D3D9RenderDevice=Direct3D 9 hardware rendering. Recommended for all players.
-D3D10Drv.D3D10RenderDevice=Direct3D 10 hardware rendering. This is suitable for newer computers. Offers more advanced visuals than Direct3D 9 at the expense of some performance.
-D3D11Drv.D3D11RenderDevice=Direct3D 11 hardware rendering. Basically just Direct3D 10 using a newer API, for people that want that.
-MetalDrv.MetalRenderDevice=Legacy renderer for users with S3 Savage4 video cards.
-SoftDrv.SoftwareRenderDevice=Software renderer. Compatible with all video cards. Not recommended.
-GlideDrv.GlideRenderDevice=Legacy Renderer for 3dfx Glide. Requires a 3dfx card. Not recommended.
-D3DDrv.D3DRenderDevice=Legacy Direct3D rendering. Not recommended. 
-RGalaxy.GalaxyAudioSubsystem=Default audio system for Deus Ex.
-ALAudio.ALAudioSubsystem=Experimental, modern audio system for Deus Ex.
+SoftDrv.SoftwareRenderDevice=Software renderer.  Compatible with all video cards.  Not recommended - use at your own risk.
+GlideDrv.GlideRenderDevice=3dfx Glide support, the optimal choice for 3dfx owners.  3dfx card required.
+D3DDrv.D3DRenderDevice=Direct3D hardware rendering.
+OpenGLDrv.OpenGLRenderDevice=OpenGL support.
+MetalDrv.MetalRenderDevice=For users with S3 Savage4 video cards.
+Galaxy.GalaxyAudioSubsystem=Default UnrealEngine Audio Subsystem.
+ALAudio.ALAudioSubsystem=Experimental OpenAL Support.
 
 [IDDIALOG_ConfigPageDetail]
 IDC_ConfigPageDetail=
-IDC_DetailPrompt=Based on your computer's speed, memory, and video card, Deus Ex has selected the following detail options in order to optimize performance.
-IDC_DetailNote=You may change these options later, if you wish, through the "preferences" settings window.
+IDC_DetailPrompt=Based on your computer's speed, memory, and video card, Launch has selected the following detail options in order to optimize performance.
+IDC_DetailNote=You may change these options from the game's "Preferences" window later, if you wish.
 
 [IDDIALOG_ConfigPageFirstTime]
 IDC_ConfigPageFirstTime=
-IDC_Prompt=Deus Ex is starting up for the first time.  If you experience any problems, e-mail bjorn@dx-revision.com.
+IDC_Prompt=Launch is starting up for the first time.  If you experience any problems, please read the release notes in the "Programs / Launch" section of the Windows "Start" menu.
 
 [IDDIALOG_ConfigPageRenderer]
 IDC_ConfigPageRenderer=
@@ -65,12 +63,16 @@ IDC_RenderNote=
 
 [IDDIALOG_ConfigPageSafeMode]
 IDC_ConfigPageSafeMode=
-IDC_SafeModePrompt=The previous time Deus Ex was run, it was not shut down properly.  In case the shut down was caused by a problem, you may use the options below for recovery.
-IDC_SafeModePrompt2=Deus Ex safe mode options: If you are experiencing problems, you may use the options below for recovery.
-IDC_Run=Run Deus Ex
-IDC_Video=Change Render Device
-IDC_Audio=Change Audio Subsystem
+IDC_SafeModePrompt=The previous time Launch was run, it was not shut down properly.  In case the shut down was caused by a problem, you may use the options below for recovery.
+IDC_SafeModePrompt2=Launch safe mode options: If you are experiencing problems, you may use the options below for recovery.
+;IDC_Run=Run Launch
+IDC_Run=Run
+;IDC_Video=Change your 3D video device
+IDC_Video=Change RenderDevice
+IDC_Audio=Change AudioSubsystem
+;IDC_SafeMode=Run Launch in safe mode - for troubleshooting
 IDC_SafeMode=Run in safe mode
+;IDC_Web=Visit Web site
 IDC_Web=Website
 
 [IDDIALOG_ConfigPageSafeOptions]
@@ -87,15 +89,14 @@ IDC_NoJoy=Disable joystick support
 
 [IDDIALOG_ConfigPageDriver]
 IDC_ConfigPageDriver=
-IDC_DriverText=Deus Ex has detected the following Direct3D compatible video card:
-IDC_DriverInfo=Since you have chosen Direct3D, Deus Ex will attempt to use this video card's driver for Direct3D rendering.\n\nIf you experience any graphical problems such as incorrect colors, flashing polygons, slow performance, or crashes, please use the "Deus Ex Safe Mode" link in the "Start / Programs" to change your video driver.
+IDC_DriverText=Launch has detected the following Direct3D compatible video card:
+IDC_DriverInfo=Since you have chosen Direct3D, Launch will attempt to use this video card's driver for Direct3D support.\n\nHowever, some 3D card drivers must be updated in order to work reliably with Launch's leading-edge 3D features.  We recommend following the web link below for more information about your video card's compatibility, and to obtain the latest Direct3D drivers.\n\nIf you experience any graphical problems such as incorrect colors, flashing polygons, slow performance, or crashes, please use the "Launch Safe Mode" link in the "Start / Programs" to change your video driver.
 IDC_Web=For links the latest drivers, visit our web page:
 IDC_WebButton=Direct3D Information && Drivers Page
 IDC_Card=Unknown
 
 [IDDIALOG_WizardDialog]
-IDC_WizardDialog=Deus Ex Setup
-
+IDC_WizardDialog=Launch Setup
 
 [Progress]
 Loading=Loading
