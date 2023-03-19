@@ -8,12 +8,14 @@ function SetRootViewport()
 	local RootWindow root;
 	local float      cinWidth, cinHeight;
 	local float      cinX,     cinY;
-	local float 	 upperHeight;
+	local float 	 upperHeight; //from RFConWindowActive2.uc
 	local float ratio;
 
 	root      = GetRootWindow();
 
-	/*MenuChoice_Resolution
+	/*
+// previous resolution code. I assume there is a good reason to have two very similar pieces of code
+
 	// calculate the correct 16:9 ratio
 	ratio = 0.5625 * (root.width / root.height);
 
@@ -29,16 +31,18 @@ function SetRootViewport()
 		root.SetRenderViewport(cinX, cinY, cinWidth, cinHeight);
 	*/
 
-//Changed the code to be more like the one in RFConWindowActive2, therefore not causing the split second change thingy
+// Changed the code to be more like the one in RFConWindowActive2.uc, therefore not causing the split second resolution change at the start of cutscenes 
+
 	// calculate the correct 16:9 ratio
 	ratio = 0.5625 * (root.width / root.height);
 	
-	//if resolution was less than 16:9, then original code occurs
+	// if resolution was less than 16:9, then original code occurs
 	if (ratio < 1) {
 		cinHeight = root.height * ratio;
 	}
-	//if resolution was 16:9 or greater, cutscene fix occurs
+	// if resolution was 16:9 or greater, cutscene fix occurs
 	else {
+	// value 0.21 was taken from 'normal' convo in RFConWindowActive2.uc (lowerFinalHeightPercent = 0.21)
 		cinHeight = min(root.height - (root.height * 0.21), root.width * 0.5625);
 	}
 	upperHeight = int(0.5 * (root.height - cinHeight));
