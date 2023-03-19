@@ -1,3 +1,5 @@
+TODO:
+
 - Try cutting the cutscene box width to make it 16:9 in widescreen, rather than just cutting the height
     and see if it looks good. It does on aspect ratios that are less than 16:9 (1440 x 960)
 
