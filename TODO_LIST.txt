@@ -6,4 +6,7 @@ TODO:
 - Try and make it so that the cutscene box does not occur at all if subtitles are not available.
 	Do an "or" check and see if subtitles are being played. If not, then continue with the original cutscene box code
 
-- Change resolution scaling to try and match 1440x960 ratios. Might prove to be better
+- Change resolution scaling for cutscenes to try and match 1440x960 ratios. Might prove to be better
+
+- Check if I would need to do a (bForcePlay) value check in RFConWindowActive2.uc. Because I am not 100% sure of what exactly uses this function.
+    But I believe it won't be an issue because other cutscenes do not modify the screen resolution like this
