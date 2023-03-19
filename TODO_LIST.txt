@@ -5,3 +5,5 @@ TODO:
 
 - Try and make it so that the cutscene box does not occur at all if subtitles are not available.
 	Do an "or" check and see if subtitles are being played. If not, then continue with the original cutscene box code
+
+- Change resolution scaling to try and match 1440x960 ratios. Might prove to be better
