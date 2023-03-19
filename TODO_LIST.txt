@@ -1,0 +1,5 @@
+- Try cutting the cutscene box width to make it 16:9 in widescreen, rather than just cutting the height
+    and see if it looks good. It does on aspect ratios that are less than 16:9 (1440 x 960)
+
+- Try and make it so that the cutscene box does not occur at all if subtitles are not available.
+	Do an "or" check and see if subtitles are being played. If not, then continue with the original cutscene box code
