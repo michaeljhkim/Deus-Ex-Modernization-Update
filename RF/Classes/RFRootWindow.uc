@@ -50,6 +50,7 @@ event MutateNewChild(Window NewParent, out class<Window> DesignatedClass)
 		case 'MenuScreenSaveGame':        		DesignatedClass = Class'RF.RFMenuScreenSaveGame';			break;
 		
 		// Swap out the ConWindowActive to RFConWindowActive2. Fixes widescreen cinematic subtitles
+		case 'CinematicWindow':					DesignatedClass = Class'RF.RFCinematicWindow';				break;
 		case 'ConWindowActive':        			DesignatedClass = Class'RF.RFConWindowActive2';				break;
 
 		default:
