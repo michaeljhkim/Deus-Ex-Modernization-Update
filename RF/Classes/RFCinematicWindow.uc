@@ -33,11 +33,11 @@ function SetRootViewport()
 	// calculate the correct 16:9 ratio
 	ratio = 0.5625 * (root.width / root.height);
 	
-	//if resolution was less than 16:9
+	//if resolution was less than 16:9, then original code occurs
 	if (ratio < 1) {
 		cinHeight = root.height * ratio;
 	}
-	//if resolution was 16:9 or greater
+	//if resolution was 16:9 or greater, cutscene fix occurs
 	else {
 		cinHeight = min(root.height - (root.height * 0.21), root.width * 0.5625);
 	}
