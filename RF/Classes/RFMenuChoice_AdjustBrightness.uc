@@ -72,10 +72,10 @@ event bool ScalePositionChanged(Window scale, int newTickPosition,
 
 defaultproperties
 {
-    numTicks=51
-    endValue=1.00
-    defaultValue=0.50
-    choiceControlPosX=290
-    actionText="|&Brightness"
-    configSetting="ini:Engine.Engine.ViewportManager Brightness"
+     numTicks=51
+     endValue=1.000000
+     defaultValue=0.500000
+     choiceControlPosX=290
+     actionText="|&Brightness"
+     configSetting="ini:Engine.Engine.ViewportManager Brightness"
 }

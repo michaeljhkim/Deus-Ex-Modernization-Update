@@ -5,6 +5,7 @@
 //=============================================================================
 class RFPlayer extends Human;
 
+
  // Scale:
  //	-1  : Relaxed V
  // 0   : Auto
@@ -15,6 +16,58 @@ var globalconfig int ScaleMode;
 
 // Used because FlashFog gets reset if under a threshold.
 var Vector CurrentFlashFog;
+
+//replaced both UpdateEyeHeight events in both PlayerPawn and in DeusExPlayer
+//had to do it like this because FOV changes otherwise
+event UpdateEyeHeight(float DeltaTime)
+{
+	local float smooth, bound;
+
+	// smooth up/down stairs
+	If( (Physics==PHYS_Walking) && !bJustLanded )
+	{
+		smooth = FMin(1.0, 10.0 * DeltaTime/Level.TimeDilation);
+		EyeHeight = (EyeHeight - Location.Z + OldLocation.Z) * (1 - smooth) + ( ShakeVert + BaseEyeHeight) * smooth;
+	}
+	else
+	{
+		smooth = FClamp(10.0 * DeltaTime/Level.TimeDilation, 0.35,1.0);
+		bJustLanded = false;
+		EyeHeight = EyeHeight * ( 1 - smooth) + (BaseEyeHeight + ShakeVert) * smooth;
+	}
+
+	// teleporters affect your FOV, so adjust it back down
+	// Only when there is no cutscene (this is the added part)
+	// THIS IS LITERALLY THE ONLY THING THAT NEEDED TO BE CHANGED
+	if ( (FOVAngle != DesiredFOV) && (conPlay == None))
+	{
+		if ( FOVAngle > DesiredFOV )
+			FOVAngle = FOVAngle - FMax(7, 0.9 * DeltaTime * (FOVAngle - DesiredFOV)); 
+		else 
+			FOVAngle = FOVAngle - FMin(-7, 0.9 * DeltaTime * (FOVAngle - DesiredFOV)); 
+		if ( Abs(FOVAngle - DesiredFOV) <= 10 )
+			FOVAngle = DesiredFOV;
+	}
+	//Super.UpdateEyeHeight(DeltaTime);
+
+	// adjust FOV for weapon zooming
+	if ( bZooming )
+	{	
+		ZoomLevel += DeltaTime * 1.0;
+		if (ZoomLevel > 0.9)
+			ZoomLevel = 0.9;
+		DesiredFOV = FClamp(90.0 - (ZoomLevel * 88.0), 1, 170);
+	} 
+
+	//FROM DeusExPlayer
+	if (JoltMagnitude != 0)
+	{
+		if ((Physics == PHYS_Walking) && (Bob != 0))
+			EyeHeight += (JoltMagnitude * 5);
+		JoltMagnitude = 0;
+	}
+}
+
 
 // ----------------------------------------------------------------------
 // ViewFlash()
@@ -81,5 +134,5 @@ event string VersionString()
 
 defaultproperties
 {
-    ScaleMode=1
+     ScaleMode=1
 }

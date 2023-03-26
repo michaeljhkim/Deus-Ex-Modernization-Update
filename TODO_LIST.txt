@@ -2,11 +2,13 @@ TODO:
 
 - Try cutting the cutscene box width to make it 16:9 in widescreen, rather than just cutting the height
     and see if it looks good. It does on aspect ratios that are less than 16:9 (1440 x 960)
-
-- Try and make it so that the cutscene box does not occur at all if subtitles are not available.
-	Do an "or" check and see if subtitles are being played. If not, then continue with the original cutscene box code
-
 - Change resolution scaling for cutscenes to try and match 1440x960 ratios. Might prove to be better
 
 - Check if I would need to do a (bForcePlay) value check in RFConWindowActive2.uc. Because I am not 100% sure of what exactly uses this function.
     But I believe it won't be an issue because other cutscenes do not modify the screen resolution like this
+
+- Try and make it so that the cutscene box does not occur at all if subtitles are not available.
+	Do an "or" check and see if subtitles are being played. If not, then continue with the original cutscene box code
+
+- Finished FOV adjusting so that when it cuts the window, it also changes the fov to match the ratio
+- Must make this optional

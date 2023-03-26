@@ -57,5 +57,5 @@ event InitGame( string Options, out string Error )
 
 defaultproperties
 {
-    DefaultPlayerClass=Class'RFJCDentonMale'
+     DefaultPlayerClass=Class'RF.RFJCDentonMale'
 }

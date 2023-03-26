@@ -49,13 +49,13 @@ event bool BoxOptionSelected(Window button, int buttonNumber)
 
 defaultproperties
 {
-    enumText(0)="Relaxed"
-    enumText(1)="Dynamic"
-    enumText(2)="Normal"
-    enumText(3)="HiDPI"
-    defaultValue=2
-    defaultInfoWidth=98
-    HelpText="In dynamic mode, the UI is scaled based on your resolution. HiDPI enlarges the UI up to 2x scale. Relaxed may be useful for unusual resolutions."
-    actionText="|&UI Scaling"
-    configSetting="RFPlayer scaleMode"
+     enumText(0)="Relaxed"
+     enumText(1)="Dynamic"
+     enumText(2)="Normal"
+     enumText(3)="HiDPI"
+     defaultValue=2
+     defaultInfoWidth=98
+     HelpText="In dynamic mode, the UI is scaled based on your resolution. HiDPI enlarges the UI up to 2x scale. Relaxed may be useful for unusual resolutions."
+     actionText="|&UI Scaling"
+     configSetting="RFPlayer scaleMode"
 }

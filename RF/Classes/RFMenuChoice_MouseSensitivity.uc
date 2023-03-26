@@ -94,9 +94,9 @@ event bool ScalePositionChanged( Window Scale, int NewTickPosition, float NewVal
 
 defaultproperties
 {
-    numTicks=19
-    startValue=0.10
-    defaultValue=1.00
-    HelpText="Modifies the mouse sensitivity"
-    actionText="Mouse |&Sensitivity"
+     numTicks=19
+     startValue=0.100000
+     defaultValue=1.000000
+     HelpText="Modifies the mouse sensitivity"
+     actionText="Mouse |&Sensitivity"
 }

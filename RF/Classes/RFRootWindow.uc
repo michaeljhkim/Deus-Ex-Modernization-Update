@@ -35,7 +35,7 @@ event MutateNewChild(Window NewParent, out class<Window> DesignatedClass)
 	local Name oldName;
 	
 	oldName = DesignatedClass.Name;
-	
+
 	switch (DesignatedClass.Name)
 	{
 		// Swap out Menu Choices.
@@ -50,7 +50,7 @@ event MutateNewChild(Window NewParent, out class<Window> DesignatedClass)
 		case 'MenuScreenSaveGame':        		DesignatedClass = Class'RF.RFMenuScreenSaveGame';			break;
 		
 		// Swap out the ConWindowActive to RFConWindowActive2. Fixes widescreen cinematic subtitles
-		case 'CinematicWindow':					DesignatedClass = Class'RF.RFCinematicWindow';				break;
+		case 'CinematicWindow':					DesignatedClass = Class'RF.RFCinematicWindow';     			break;
 		case 'ConWindowActive':        			DesignatedClass = Class'RF.RFConWindowActive2';				break;
 
 		default:
@@ -243,7 +243,7 @@ function MenuUIMessageBoxWindow CustomMessageBox
 
 defaultproperties
 {
-    HorizontalDivisor=640.00
-    VerticalDivisor=480.00
-    VerticalRelaxedDivisor=449.00
+     HorizontalDivisor=640.000000
+     VerticalDivisor=480.000000
+     VerticalRelaxedDivisor=449.000000
 }

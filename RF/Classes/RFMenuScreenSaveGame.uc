@@ -252,11 +252,11 @@ function NewSaveGame()
 
 defaultproperties
 {
-    minFreeDiskSpace=125
-    clientTextures(0)=None
-    clientTextures(1)=None
-    clientTextures(2)=None
-    clientTextures(3)=None
-    clientTextures(4)=None
-    clientTextures(5)=None
+     minFreeDiskSpace=125
+     clientTextures(0)=None
+     clientTextures(1)=None
+     clientTextures(2)=None
+     clientTextures(3)=None
+     clientTextures(4)=None
+     clientTextures(5)=None
 }

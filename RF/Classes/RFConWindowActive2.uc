@@ -12,6 +12,10 @@ you had a resolution with a shorter width.
 
 class RFConWindowActive2 extends ConWindowActive;
 
+//OTHER PROBLEM: AFTER INTRO, IT JUST KEEPS ZOOMING IN AND IN
+//MOST LIKELY, MUST RESET FOV IN CINMEATIC WINDOW!!!
+
+
 function CalculateWindowSizes()
 {
 	local float lowerHeight;
@@ -26,22 +30,24 @@ function CalculateWindowSizes()
 
 	root = GetRootWindow();
 
-// Kenties fix for widescreen cinematic subtitles only kicks in if screen is 16:9 or greater 
-	
+	//Kenties fix for widescreen cinematic subtitles only kicks in if screen is 16:9 or greater 
 	// Determine the height of the convo windows, based on available space
 	if (bForcePlay)
 	{
+
 		// calculate the correct 16:9 ratio
 		ratio = 0.5625 * (root.width / root.height);
 		
 		//if resolution was less than 16:9
+		//Adjusts fov to match 16:9 proportions as well. Must figure out how to make this optional
 		if (ratio < 1) {
+			player.DesiredFOV = player.Default.DesiredFOV * (0.5625 / (root.height / root.width));
 			cinHeight = root.height * ratio;
 		}
 		//if resolution was 16:9 or greater
 		//MKE
 		else {
-			minLowerHeight = int(height * lowerFinalHeightPercent); //Taken from 'normal' convo. lowerFinalHeightPercent = 0.21
+			minLowerHeight = int(height * lowerFinalHeightPercent); //Taken from 'normal' convo. lowerFinalHeightPercent=0.21
 			cinHeight = min(root.height - minLowerHeight, root.width * 0.5625);
 		}
 
@@ -55,54 +61,8 @@ function CalculateWindowSizes()
 			root.ResetRenderViewport();
 		else
 			root.SetRenderViewport(0, upperHeight, width, cinHeight);
-	}
 
-/*
-// Original cutscene resolution code 
-
-	if (bForcePlay) 
-	{
-		// calculate the correct 16:9 ratio
-		ratio = 0.5625 * (root.width / root.height);
-		cinHeight = root.height * ratio;
-
-		upperCurrentPos = 0;
-		upperHeight     = int(0.5 * (root.height - cinHeight));
-		lowerCurrentPos = upperHeight + cinHeight;
-		lowerHeight     = upperHeight;
-
-		// make sure we don't invert the letterbox if the screen size is strange
-		if (upperHeight < 0)
-			root.ResetRenderViewport();
-		else
-			root.SetRenderViewport(0, upperHeight, width, cinHeight);
-	}
-*/
-
-/*
-// REVISION cutscene fix (not sure if I like it better than kenties)
-
-// Determine the height of the convo windows, based on available space
-	if (bForcePlay)
-	{
-		// calculate the correct 16:9 ratio
-		// ratio = 0.5625 * (root.width / root.height);
-		// Converted to 20:9 now to display subtitles on monitors that are now 16:9.
-		ratio = 0.45 * (root.width / root.height);
-		cinHeight = root.height * ratio;
-
-		upperCurrentPos = 0;
-		upperHeight     = int(0.5 * (root.height - cinHeight));
-		lowerCurrentPos = upperHeight + cinHeight;
-		lowerHeight     = upperHeight;
-
-		// make sure we don't invert the letterbox if the screen size is strange
-		if (upperHeight < 0)
-			root.ResetRenderViewport();
-		else
-			root.SetRenderViewport(0, upperHeight, width, cinHeight);
-	}
-*/
+	}	
 	else
 	{
 		upperHeight = int(height * upperFinalHeightPercent);
@@ -133,6 +93,14 @@ function CalculateWindowSizes()
 
 	ConfigureCameraWindow(lowerCurrentPos);
 }
+
+//This resets the FOV after cutscenes
+event DestroyWindow()
+{
+	Super.DestroyWindow();
+	player.DesiredFOV = player.Default.DesiredFOV;
+}
+
 defaultproperties
 {
 }

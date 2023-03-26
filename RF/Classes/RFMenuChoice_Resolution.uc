@@ -139,7 +139,7 @@ function GetScreenResolutions()
 
 defaultproperties
 {
-    defaultInfoWidth=98
-    HelpText="Change the video resolution"
-    actionText="|&Screen Resolution"
+     defaultInfoWidth=98
+     HelpText="Change the video resolution"
+     actionText="|&Screen Resolution"
 }

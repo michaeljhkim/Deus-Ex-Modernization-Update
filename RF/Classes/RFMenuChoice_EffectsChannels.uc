@@ -68,11 +68,11 @@ function SetEnumerators()
 
 defaultproperties
 {
-    numTicks=29
-    startValue=3.00
-    endValue=32.00
-    defaultValue=26.00
-    HelpText="Number of sound effects channels"
-    actionText="E|&ffects Channels"
-    configSetting="ini:Engine.Engine.AudioDevice EffectsChannels"
+     numTicks=29
+     startValue=3.000000
+     endValue=32.000000
+     defaultValue=26.000000
+     HelpText="Number of sound effects channels"
+     actionText="E|&ffects Channels"
+     configSetting="ini:Engine.Engine.AudioDevice EffectsChannels"
 }
