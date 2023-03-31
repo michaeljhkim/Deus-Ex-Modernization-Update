@@ -38,10 +38,11 @@ function CalculateWindowSizes()
 		// calculate the correct 16:9 ratio
 		ratio = 0.5625 * (root.width / root.height);
 		
-		//if resolution was less than 16:9
-		//Adjusts fov to match 16:9 proportions as well. Must figure out how to make this optional
+		// if resolution was less than 16:9
+		// Adjusts fov to match 16:9 proportions as well. Must figure out how to make this optional
+		// disabled this feature for now
 		if (ratio < 1) {
-			player.DesiredFOV = player.Default.DesiredFOV * (0.5625 / (root.height / root.width));
+			//player.DesiredFOV = player.Default.DesiredFOV * (0.5625 / (root.height / root.width));
 			cinHeight = root.height * ratio;
 		}
 		//if resolution was 16:9 or greater

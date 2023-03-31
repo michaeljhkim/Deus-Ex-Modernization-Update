@@ -5,7 +5,6 @@
 //=============================================================================
 class RFPlayer extends Human;
 
-
  // Scale:
  //	-1  : Relaxed V
  // 0   : Auto
@@ -17,10 +16,14 @@ var globalconfig int ScaleMode;
 // Used because FlashFog gets reset if under a threshold.
 var Vector CurrentFlashFog;
 
-//replaced both UpdateEyeHeight events in both PlayerPawn and in DeusExPlayer
-//had to do it like this because FOV changes otherwise
+
+// replaced both UpdateEyeHeight events in both PlayerPawn and in DeusExPlayer
+// had to do it like this because FOV changes otherwise
+// disabled fov changing for now
 event UpdateEyeHeight(float DeltaTime)
 {
+	Super.UpdateEyeHeight(DeltaTime);
+	/*
 	local float smooth, bound;
 
 	// smooth up/down stairs
@@ -48,7 +51,6 @@ event UpdateEyeHeight(float DeltaTime)
 		if ( Abs(FOVAngle - DesiredFOV) <= 10 )
 			FOVAngle = DesiredFOV;
 	}
-	//Super.UpdateEyeHeight(DeltaTime);
 
 	// adjust FOV for weapon zooming
 	if ( bZooming )
@@ -66,6 +68,7 @@ event UpdateEyeHeight(float DeltaTime)
 			EyeHeight += (JoltMagnitude * 5);
 		JoltMagnitude = 0;
 	}
+	*/
 }
 
 
