@@ -107,10 +107,13 @@ event ResizeRoot( Canvas Canvas )
 	P = GetPlayerPawn();
 	if ( P!=None )
 	{
+		/*
 		if ( P.XLevel.Outer.Name=='00_Intro' )
 			ScaleMode = 1;
 		else
 			ScaleMode = Int(P.GetPropertyText("ScaleMode"));
+		*/
+		ScaleMode = Int(P.GetPropertyText("ScaleMode"));
 	}
 	else
 		ScaleMode = 0;
