@@ -22,11 +22,10 @@ function SetRootViewport()
 
 	// changes FOV to match aspect ratio
 	if (ratio < 1) {
-		//player.DesiredFOV = player.Default.DesiredFOV * (0.5625 / (root.height / root.width));
 		cinHeight = root.height * ratio;
 	}
 	else {
-		cinHeight = min(root.height - (root.height * 0.21), root.width * 0.5625);
+		cinHeight = min(root.height - (root.height * 0.15), root.width * 0.5625);
 	}
 	cinX      = 0;
 	cinY      = int(0.5 * (root.height - cinHeight));
