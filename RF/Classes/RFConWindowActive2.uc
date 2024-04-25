@@ -42,13 +42,13 @@ function CalculateWindowSizes()
 		// Adjusts fov to match 16:9 proportions as well. Must figure out how to make this optional
 		// disabled this feature for now
 		if (ratio < 1) {
-			//player.DesiredFOV = player.Default.DesiredFOV * (0.5625 / (root.height / root.width));
 			cinHeight = root.height * ratio;
 		}
 		//if resolution was 16:9 or greater
 		//MKE
 		else {
-			minLowerHeight = int(height * lowerFinalHeightPercent); //Taken from 'normal' convo. lowerFinalHeightPercent=0.21
+			//minLowerHeight = int(height * lowerFinalHeightPercent); //Taken from 'normal' convo. lowerFinalHeightPercent=0.21
+			minLowerHeight = int(height * 0.15);
 			cinHeight = min(root.height - minLowerHeight, root.width * 0.5625);
 		}
 
